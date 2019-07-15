@@ -1,0 +1,47 @@
+{
+  "base": [
+    {
+      "name": "Egg",
+      "image": "src/Components/Pizza-Images/eggBased.png",
+      "price": 100
+    },
+    {
+      "name": "Tomato",
+      "image": "src/Components/Pizza-Images/tomatoBased.png",
+      "price": 80
+    }
+  ],
+  
+  "toppings": [
+    {
+      "name": "Mushroom",
+      "image": "",
+      "price": 50
+    },
+    {
+      "name": "Sausage",
+      "image": "",
+      "price": 60
+    },
+    {
+      "name": "Olive",
+      "image": "",
+      "price": 65
+    },
+    {
+      "name": "Tomato",
+      "image": "",
+      "price": 55
+    },
+    {
+      "name": "GreenPepper",
+      "image": "",
+      "price": 70
+    },
+    {
+      "name": "RedPepper",
+      "image": "",
+      "price": 70
+    }
+  ]
+}
