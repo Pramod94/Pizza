@@ -2,7 +2,7 @@
   "base": [
     {
       "name": "Egg",
-      "image": "src/Components/Pizza-Images/eggBased.png",
+      "image": "/home/pramod/React/pizza/src/Pizza-Images/eggBased.png",
       "price": 100
     },
     {
