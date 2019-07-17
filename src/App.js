@@ -6,6 +6,9 @@ import image from './Pizza-Images/pizza.png';
 import Constants from './Constants';
 import './App.css';
 
+var toppingsTotal = 0;
+var baseTotal = 0;
+
 class App extends Component {
   constructor(props) {
     super(props);
