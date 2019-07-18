@@ -9,6 +9,12 @@ export default {
   baseName : "Pizza Base",
 
   //Pizza Toppings
-  toppingsName : "Pizza Toppings"
+  toppingsName : "Pizza Toppings",
 
+  //Pizza Image
+  baseImages : [],
+  toppingsImages : [],
+  width : "300px",
+  height : "300px",
+  alt : "Pizza"
 }

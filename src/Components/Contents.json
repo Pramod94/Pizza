@@ -1,45 +1,46 @@
 {
+  "default_image" : "./Pizza-Images/pizza.png", 
   "base": [
     {
       "name": "Egg",
-      "image": "/home/pramod/React/pizza/src/Pizza-Images/eggBased.png",
+      "image": "./Pizza-Images/eggBased.png",
       "price": 100
     },
     {
       "name": "Tomato",
-      "image": "src/Components/Pizza-Images/tomatoBased.png",
+      "image": "./Pizza-Images/tomatoBased.png",
       "price": 80
     }
   ],
   "toppings": [
     {
       "name": "Mushroom",
-      "image": "",
+      "image": "./Pizza-Images/mushroomss.png",
       "price": 50
     },
     {
       "name": "Sausage",
-      "image": "",
+      "image": "./Pizza-Images/sausagess.png",
       "price": 60
     },
     {
       "name": "Olive",
-      "image": "",
+      "image": "./Pizza-Images/olives.png",
       "price": 65
     },
     {
       "name": "Tomato",
-      "image": "",
+      "image": "./Pizza-Images/tomato.png",
       "price": 55
     },
     {
       "name": "GreenPepper",
-      "image": "",
+      "image": "./Pizza-Images/papperGreens.png",
       "price": 70
     },
     {
       "name": "RedPepper",
-      "image": "",
+      "image": "./Pizza-Images/papperRed.png",
       "price": 70
     }
   ]

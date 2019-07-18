@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PizzaBase from './Components/Pizza_Base/Pizza_Base';
 import Toppings from './Components/Pizza_Toppings/Toppings';
 import Contents from './Components/Contents.json';
-import image from './Pizza-Images/pizza.png';
 import Constants from './Constants';
+import Pizza from './Components/Pizza_Image/Image';
 import './App.css';
 
 class App extends Component {
@@ -11,20 +11,37 @@ class App extends Component {
     super(props);
     this.state = {
       total: 0,
-      toppingsTotal: 0
+      pizzaImage: []
     }
   }
 
-  handleChange = (e) => {
+  handleChange = (e, content) => {
     const val = Number(e.target.value);
+
     switch (e.target.type) {
-      case 'radio': Constants.baseTotal = val;
+      case 'radio':
+        Constants.baseTotal = val;
+        Constants.baseImages = content.image;
         break;
-      case 'checkbox': Constants.toppingsTotal = e.target.checked ?
-        (Constants.toppingsTotal + val) : (Constants.toppingsTotal - val)
+
+      case 'checkbox':
+        if (e.target.checked) {
+          Constants.toppingsTotal += val;
+          Constants.toppingsImages.push(content.image);
+        } else {
+          Constants.toppingsTotal -= val;
+          let imgIndex = Constants.toppingsImages.indexOf(content.image);
+          Constants.toppingsImages.splice(imgIndex, 1);
+        }
         break;
+
+      default: console.log("Default Case");
     }
-    this.setState({ total: Constants.baseTotal + Constants.toppingsTotal })
+
+    this.setState({
+      total: Constants.baseTotal + Constants.toppingsTotal,
+      pizzaImage: [Constants.baseImages, ...Constants.toppingsImages]
+    })
   }
 
   render() {
@@ -35,7 +52,9 @@ class App extends Component {
         <Toppings toppings={Contents.toppings} toppingsChange={this.handleChange} />
         <h5>{Constants.total}{this.state.total}</h5>
         <button>{Constants.button}</button>
-        <img src={image} alt="pizza" width="300px" height="300px" />
+        <img src={Contents.default_image} alt={Constants.alt} width={Constants.width}
+         height={Constants.height} />
+        <Pizza img={this.state.pizzaImage} />
       </div>
     );
   }

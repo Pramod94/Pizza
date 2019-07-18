@@ -13,7 +13,7 @@ function Pizza_Base(props) {
               <input className="form-check-input" type="radio"
                 name="Pizza Base" id={base.name}
                 value={base.price}
-                onChange={(e) => props.baseChange(e, base)}
+                onChange={(e) => props.baseChange(e,base)}
               />
               <label className="form-check-label">
                 {base.name}

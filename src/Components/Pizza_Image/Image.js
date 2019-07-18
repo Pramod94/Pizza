@@ -1,9 +1,13 @@
 import React from 'react';
+import Constants from '../../Constants';
 
 function Pizza(props){
   return(
     <div>
-      <img src={props.img} alt="Pizza" width="300px" height="300px" />
+      {props.img.map(imageUrl => {
+        return <img key={imageUrl} src={imageUrl} alt={Constants.alt} 
+        width={Constants.width} height={Constants.height}/>
+      })}
     </div>
   )
 }
