@@ -1,10 +1,12 @@
 import React from 'react';
 import Constants from '../../Constants';
+import '../Pizza_Toppings/Toppings.css';
 
 function Toppings(props) {
   return (
     <div>
       <h4>{Constants.toppingsName}</h4>
+      <div className="items">
       {
         props.toppings.map(toppings => {
           return (
@@ -19,6 +21,7 @@ function Toppings(props) {
           )
         })
       }
+      </div>
     </div>
   )
 }

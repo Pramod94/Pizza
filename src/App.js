@@ -4,6 +4,7 @@ import Toppings from './Components/Pizza_Toppings/Toppings';
 import Contents from './Components/Contents.json';
 import Constants from './Constants';
 import Pizza from './Components/Pizza_Image/Image';
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
 class App extends Component {
@@ -46,15 +47,27 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h2>{Constants.heading}</h2>
-        <PizzaBase base={Contents.base} baseChange={this.handleChange} />
-        <Toppings toppings={Contents.toppings} toppingsChange={this.handleChange} />
-        <h5>{Constants.total}{this.state.total}</h5>
-        <button>{Constants.button}</button>
-        <img src={Contents.default_image} alt={Constants.alt} width={Constants.width}
-         height={Constants.height} />
-        <Pizza img={this.state.pizzaImage} />
+      <div className="overview">
+        <h2 className="heading">{Constants.heading}</h2>
+
+        <div className="wrapper">
+          
+          <div className="Content">
+            <PizzaBase base={Contents.base} baseChange={this.handleChange} />
+            <Toppings toppings={Contents.toppings} toppingsChange={this.handleChange} />
+            <h5>{Constants.total}{this.state.total}</h5>
+            <button className="btn btn-outline-primary button">{Constants.button}</button>
+          </div>
+
+          <div className="Image">
+            <img src={Contents.default_image} alt={Constants.alt} width={Constants.width}
+              height={Constants.height} />
+           <div className="onClickImage">
+            <Pizza img={this.state.pizzaImage} />
+           </div>
+          </div>
+
+        </div>
       </div>
     );
   }

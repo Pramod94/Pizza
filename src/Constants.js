@@ -14,7 +14,7 @@ export default {
   //Pizza Image
   baseImages : [],
   toppingsImages : [],
-  width : "300px",
-  height : "300px",
+  width : "450px",
+  height : "450px",
   alt : "Pizza"
 }

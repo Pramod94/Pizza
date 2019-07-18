@@ -1,11 +1,13 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Constants from '../../Constants';
+import '../Pizza_Base/Base_Items.css';
 
 function Pizza_Base(props) {
   return (
     <div>
       <h4>{Constants.baseName}</h4>
+      <div className="items">
       {
         props.base.map(base => {
           return (
@@ -22,6 +24,7 @@ function Pizza_Base(props) {
           )
         })
       }
+      </div>
     </div>
   )
 }
