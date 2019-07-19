@@ -1,47 +1,54 @@
 {
-  "default_image" : "./Pizza-Images/pizza.png", 
   "base": [
     {
       "name": "Egg",
       "image": "./Pizza-Images/eggBased.png",
-      "price": 100
+      "price": 100,
+      "ischecked": false
     },
     {
       "name": "Tomato",
       "image": "./Pizza-Images/tomatoBased.png",
-      "price": 80
+      "price": 80,
+      "ischecked": false
     }
   ],
   "toppings": [
     {
       "name": "Mushroom",
       "image": "./Pizza-Images/mushroomss.png",
-      "price": 50
+      "price": 50,
+      "ischecked": false
     },
     {
       "name": "Sausage",
       "image": "./Pizza-Images/sausagess.png",
-      "price": 60
+      "price": 60,
+      "ischecked": false
     },
     {
       "name": "Olive",
       "image": "./Pizza-Images/olives.png",
-      "price": 65
+      "price": 65,
+      "ischecked": false
     },
     {
       "name": "Tomato",
       "image": "./Pizza-Images/tomato.png",
-      "price": 55
+      "price": 55,
+      "ischecked": false
     },
     {
       "name": "GreenPepper",
       "image": "./Pizza-Images/papperGreens.png",
-      "price": 70
+      "price": 70,
+      "ischecked": false
     },
     {
       "name": "RedPepper",
       "image": "./Pizza-Images/papperRed.png",
-      "price": 70
+      "price": 70,
+      "ischecked": false
     }
   ]
 }

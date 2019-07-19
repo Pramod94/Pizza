@@ -4,3 +4,16 @@
   grid-template-rows: 1fr;
   grid-gap: 10px;
  }
+
+ /* .form-check{
+   cursor: pointer;
+ } */
+
+ .form-check-label{
+   cursor: pointer;
+ }
+
+ .form-check-input{
+   cursor: pointer;
+ }
+ 

@@ -1,9 +1,11 @@
 export default {
+  default_image: "./Pizza-Images/pizza.png",
+
   toppingsTotal : 0,
   baseTotal : 0,
-  heading : "Pizza Order System",
+  heading : "PIZZA ORDER SYSTEM",
   total : "Total Price : ",
-  button : "Order",
+  button : "ORDER",
 
   //Pizza Base
   baseName : "Pizza Base",
@@ -16,5 +18,19 @@ export default {
   toppingsImages : [],
   width : "450px",
   height : "450px",
-  alt : "Pizza"
+  alt : "Pizza",
+
+  //Pizza Order
+  orderSection : "Pizza Order Section",
+  price : "Pizza price :",
+  paymentMethod : "Payment Method",
+  OrderCancel : "CANCEL",
+  OrderConfirm : "CONFIRM",
+  payment: [
+    "Pay at the door",
+    "Credit Card"
+  ],
+
+  //Default Toggle
+  toggleName : "Default"
 }

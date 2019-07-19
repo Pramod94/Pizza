@@ -1,0 +1,26 @@
+{
+  "default": {
+    "base": [
+      {
+        "name": "Egg",
+        "image": "./Pizza-Images/eggBased.png",
+        "price": 100,
+        "ischecked": true
+      }
+    ],
+    "toppings": [
+      {
+        "name": "Mushroom",
+        "image": "./Pizza-Images/mushroomss.png",
+        "price": 50,
+        "ischecked": true
+      },
+      {
+        "name": "Olive",
+        "image": "./Pizza-Images/olives.png",
+        "price": 65,
+        "ischecked": true
+      }
+    ]
+  }
+}

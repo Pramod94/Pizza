@@ -5,16 +5,17 @@ import '../Pizza_Toppings/Toppings.css';
 function Toppings(props) {
   return (
     <div>
-      <h4>{Constants.toppingsName}</h4>
+      <h5>{Constants.toppingsName}</h5>
       <div className="items">
       {
-        props.toppings.map(toppings => {
+       props.toppings && props.toppings.map(toppings => {
           return (
             <div key={toppings.name} className="form-check">
-              <input className="form-check-input" type="checkbox" value={toppings.price}
+              <label className="form-check-label">
+              <input className="form-check-input" type="checkbox"
+              defaultChecked = {toppings.ischecked}
                 onChange={(e) => props.toppingsChange(e, toppings)}
               />
-              <label className="form-check-label">
                 {toppings.name}
               </label>
             </div>

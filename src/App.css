@@ -2,32 +2,42 @@
   margin: 3%;
   display: grid;
   grid-gap: 7%;
+  /* grid-template-rows: 1fr 2fr; */
 }
 
 .heading{
-  font-style: italic;
+  font-style: initial;
 }
 
 .wrapper{
 display: grid;
-grid-template-columns: 40% 40%;
-grid-gap: 10%;
+/* grid-template-rows: 10%; */
+grid-template-columns: 50% 40%;
+/* grid-gap: 10%; */
 }
 
 .Content{
   display: grid;
+  grid-gap: 15%;
 }
 
 .button{
   width: 6em;
-  height: 3em;
+  /* height: 3em; */
+  border-radius: 1em;
 }
 
-.Image{
+.image-grid {
   position: relative;
 }
 
-.onClickImage{
- position: absolute;
- top: 0%;
+.stack-images {
+  position: absolute;
+}
+
+.order-button{
+  width: 8em;
+  background-color:#2d3436;
+  color: whitesmoke;
+  border-radius: 0.5em;
 }
