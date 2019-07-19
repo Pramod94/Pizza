@@ -43,5 +43,6 @@
       "image": "./Pizza-Images/papperRed.png",
       "price": 70
     }
-  ]
+  ],
+  "payment" : ["Pay at the door", "Credit Card"]
 }

@@ -5,7 +5,7 @@ function Pizza(props){
   return(
     <div>
       {props.img.map(imageUrl => {
-        return <img key={imageUrl} src={imageUrl} alt={Constants.alt} 
+        return <img className="stack-images" key={imageUrl} src={imageUrl} alt={Constants.alt} 
         width={Constants.width} height={Constants.height}/>
       })}
     </div>

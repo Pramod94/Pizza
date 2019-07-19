@@ -1,7 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Constants from '../../Constants';
-import '../Pizza_Base/Base_Items.css';
 
 function Pizza_Base(props) {
   return (
@@ -11,13 +10,13 @@ function Pizza_Base(props) {
       {
         props.base.map(base => {
           return (
-            <div key={base.name} className="form-check">
+            <div className="item" key={base.name} className="form-check">
+              <label className="form-check-label">
               <input className="form-check-input" type="radio"
                 name="Pizza Base" id={base.name}
-                value={base.price}
+                defaultChecked={props.check}
                 onChange={(e) => props.baseChange(e,base)}
               />
-              <label className="form-check-label">
                 {base.name}
               </label>
             </div>

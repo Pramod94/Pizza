@@ -2,6 +2,7 @@
   margin: 3%;
   display: grid;
   grid-gap: 7%;
+  /* grid-template-rows: 1fr 2fr; */
 }
 
 .heading{
@@ -10,24 +11,27 @@
 
 .wrapper{
 display: grid;
-grid-template-columns: 40% 40%;
-grid-gap: 10%;
+/* grid-template-rows: 10%; */
+grid-template-columns: 50% 40%;
+/* grid-gap: 10%; */
 }
 
 .Content{
   display: grid;
+  grid-gap: 15%;
 }
 
 .button{
   width: 6em;
-  height: 3em;
+  /* height: 3em; */
+  border-radius: 1em;
 }
 
-.Image{
+.image-grid {
   position: relative;
 }
 
-.onClickImage{
- position: absolute;
- top: 0%;
+.stack-images {
+  position: absolute;
 }
+

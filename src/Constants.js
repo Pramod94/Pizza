@@ -16,5 +16,15 @@ export default {
   toppingsImages : [],
   width : "450px",
   height : "450px",
-  alt : "Pizza"
+  alt : "Pizza",
+
+  //Pizza Order
+  orderSection : "Pizza Order Section",
+  price : "Pizza price :",
+  paymentMethod : "Payment Method",
+  OrderCancel : "Cancel",
+  OrderConfirm : "Confirm",
+
+  //Default Toggle
+  toggleName : "Default"
 }

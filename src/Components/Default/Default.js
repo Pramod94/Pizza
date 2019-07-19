@@ -1,14 +1,16 @@
 import React from 'react';
-// import '../Default/Toggle.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import Constants from '../../Constants';
 
-function Default_Toggle(props){
-  return(
+function Default_Toggle(props) {
+  return (
     <div>
-       <label>
-         <input type="checkbox" onChange={props.onDefault}/>
-         Default
-         </label>
+      <label className="form-check-label">
+        <input className="form-check-input" type="checkbox"
+          onChange={props.default}
+        />
+        {Constants.toggleName}
+      </label>
     </div>
   )
 }
