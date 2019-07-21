@@ -7,6 +7,7 @@ import Constants from './Constants';
 import Pizza from './Components/Pizza_Image/Image';
 import Order from './Components/Pizza_Order/Order';
 import Toggle from './Components/Default/Default';
+import Total from './Components/Total/Total';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
