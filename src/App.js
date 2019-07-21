@@ -6,6 +6,7 @@ import Constants from './Constants';
 import Pizza from './Components/Pizza_Image/Image';
 import Order from './Components/Pizza_Order/Order';
 import Toggle from './Components/Default/Default';
+import Total from './Components/Total/Total';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
@@ -28,57 +29,22 @@ class App extends Component {
 
   handleBaseChange = (e, content) => {
     let oldBase = [...this.state.displayContents.base];
-    const data = {...this.state.displayContents};
-    // content.ischecked = e.target.defaultChecked;
-    // data.base = {...data.base,...content}
-    // this.setState({displayContents : Object.assign(data,data.base)})
+    const data = { ...this.state.displayContents };
     const newBase = oldBase.map(base => {
       if (content.name == base.name) {
         base.ischecked = e.target.checked;
         return base;
       } else {
-
         base.ischecked = false;
         return base;
       }
     })
-
     this.setState({ displayContents: { base: newBase, toppings: data.toppings } });
-
-    // if(this.state.displayContents.ischecked){
-    //   switch (e.target.type) {
-    //     case 'radio':
-    //       Constants.baseTotal = val;
-    //       Constants.baseImages = content.image;
-    //       break;
-    //     case 'checkbox':
-    //       if (e.target.checked) {
-    //         Constants.toppingsTotal += val;
-    //         Constants.toppingsImages.push(content.image);
-    //       } else {
-    //         Constants.toppingsTotal -= val;
-    //         let imgIndex = Constants.toppingsImages.indexOf(content.image);
-    //         Constants.toppingsImages.splice(imgIndex, 1);
-    //       }
-    //       break;
-
-    //     default: console.log("Default Case");
-    //   }
-    // }
-
-    // this.setState({
-    //   total: Constants.baseTotal + Constants.toppingsTotal,
-    //   pizzaImage: [Constants.baseImages, ...Constants.toppingsImages]
-    // })
-
   }
 
-  handleToppingsChange = (e,content) => {
+  handleToppingsChange = (e, content) => {
     let oldToppings = [...this.state.displayContents.toppings];
-    const data = {...this.state.displayContents};
-    // content.ischecked = e.target.defaultChecked;
-    // data.base = {...data.base,...content}
-    // this.setState({displayContents : Object.assign(data,data.base)})
+    const data = { ...this.state.displayContents };
     const newToppings = oldToppings.map(topping => {
       if (content.name == topping.name) {
         topping.ischecked = e.target.checked;
@@ -137,8 +103,8 @@ class App extends Component {
               <Toppings toppings={this.state.displayContents.toppings}
                 toppingsChange={this.handleToppingsChange}
               />
-
-              <h5>{Constants.total}{this.state.total}</h5>
+              {/* <h5>{Constants.total}{this.state.total}</h5> */}
+              <Total total={this.state.displayContents}/>
               <button className="order-button"
                 onClick={this.handleOrder}
               >{Constants.button}</button>

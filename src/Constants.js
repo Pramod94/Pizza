@@ -6,6 +6,7 @@ export default {
   heading : "PIZZA ORDER SYSTEM",
   total : "Total Price : ",
   button : "ORDER",
+  finalTotal : 0,
 
   //Pizza Base
   baseName : "Pizza Base",
