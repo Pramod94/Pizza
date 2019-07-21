@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import PizzaBase from './Components/Pizza_Base/Pizza_Base';
 import Toppings from './Components/Pizza_Toppings/Toppings';
 import Contents from './Components/Contents.json';
+import Default from './Components/Default.json';
 import Constants from './Constants';
 import Pizza from './Components/Pizza_Image/Image';
 import Order from './Components/Pizza_Order/Order';
 import Toggle from './Components/Default/Default';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
+
+const finalTotal = 0;
 
 class App extends Component {
   constructor(props) {
@@ -18,67 +21,38 @@ class App extends Component {
       showContent: true,
       baseState: false,
       toppingsState: false,
-      displayContents: {}
+      displayContents: {},
+      defaultContent: {}
     }
   }
 
   componentDidMount() {
-    this.setState({ displayContents: Contents })
+    this.setState(
+      { 
+        displayContents: Contents,
+        defaultContent : Default
+       })
   }
 
   handleBaseChange = (e, content) => {
     let oldBase = [...this.state.displayContents.base];
-    const data = {...this.state.displayContents};
-    // content.ischecked = e.target.defaultChecked;
-    // data.base = {...data.base,...content}
-    // this.setState({displayContents : Object.assign(data,data.base)})
+    const data = { ...this.state.displayContents };
     const newBase = oldBase.map(base => {
       if (content.name == base.name) {
         base.ischecked = e.target.checked;
         return base;
       } else {
-
         base.ischecked = false;
         return base;
       }
     })
-
     this.setState({ displayContents: { base: newBase, toppings: data.toppings } });
-
-    // if(this.state.displayContents.ischecked){
-    //   switch (e.target.type) {
-    //     case 'radio':
-    //       Constants.baseTotal = val;
-    //       Constants.baseImages = content.image;
-    //       break;
-    //     case 'checkbox':
-    //       if (e.target.checked) {
-    //         Constants.toppingsTotal += val;
-    //         Constants.toppingsImages.push(content.image);
-    //       } else {
-    //         Constants.toppingsTotal -= val;
-    //         let imgIndex = Constants.toppingsImages.indexOf(content.image);
-    //         Constants.toppingsImages.splice(imgIndex, 1);
-    //       }
-    //       break;
-
-    //     default: console.log("Default Case");
-    //   }
-    // }
-
-    // this.setState({
-    //   total: Constants.baseTotal + Constants.toppingsTotal,
-    //   pizzaImage: [Constants.baseImages, ...Constants.toppingsImages]
-    // })
-
+    this.handleTotal();
   }
 
-  handleToppingsChange = (e,content) => {
+  handleToppingsChange = (e, content) => {
     let oldToppings = [...this.state.displayContents.toppings];
-    const data = {...this.state.displayContents};
-    // content.ischecked = e.target.defaultChecked;
-    // data.base = {...data.base,...content}
-    // this.setState({displayContents : Object.assign(data,data.base)})
+    const data = { ...this.state.displayContents };
     const newToppings = oldToppings.map(topping => {
       if (content.name == topping.name) {
         topping.ischecked = e.target.checked;
@@ -88,19 +62,17 @@ class App extends Component {
       }
     })
     this.setState({ displayContents: { base: data.base, toppings: newToppings } })
+    this.handleTotal();
   }
 
   handleOrder = () => {
-    console.log("Order Clicked");
     this.setState({ showContent: false })
   }
 
   handleCancel = () => {
     this.setState(
       {
-        showContent: true,
-        // total : 0,
-        // pizzaImage : []
+        showContent: true
       })
   }
 
@@ -109,11 +81,22 @@ class App extends Component {
     this.setState({ baseState: true })
     console.log(this.state.baseState);
   }
-
-  // temp = true;
+  
+  handleTotal = () => {  
+      this.state.displayContents.base.map(base => {
+        if (base.ischecked) {
+          finalTotal = Number(base.price);
+        }
+      })
+      this.state.displayContents.toppings.map(topping => {
+        if (topping.ischecked) {
+          finalTotal += Number(topping.price);
+        }
+      }) 
+    this.setState({ total : finalTotal })
+  }
 
   render() {
-    // console.log(this.state.displayContents);
     return (
       <div className="overview">
 
@@ -124,7 +107,10 @@ class App extends Component {
                 height={Constants.height} />
               <Pizza displayContents={this.state.displayContents} />
             </div>
-            <Toggle default={this.handleDefault} />
+            <Toggle 
+            defaultContent={this.state.defaultContent}
+            default={this.handleDefault} 
+            />
           </div>
 
           {this.state.showContent &&
@@ -137,7 +123,6 @@ class App extends Component {
               <Toppings toppings={this.state.displayContents.toppings}
                 toppingsChange={this.handleToppingsChange}
               />
-
               <h5>{Constants.total}{this.state.total}</h5>
               <button className="order-button"
                 onClick={this.handleOrder}
@@ -148,13 +133,6 @@ class App extends Component {
             <Order price={this.state.total} cancel={this.handleCancel} />
           }
         </div>
-
-        {/* <div class="form-check">
-          <input class="form-check-input" type="checkbox" defaultChecked={this.temp} id="defaultCheck1" />
-          <label class="form-check-label" for="defaultCheck1">
-            Default checkbox
-          </label>
-        </div> */}
       </div>
     );
   }
