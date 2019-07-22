@@ -5,9 +5,9 @@ import Constants from '../../Constants';
 function Default_Toggle(props) {
   return (
     <div>
-      <label className="form-check-label">
-        <input className="form-check-input" type="checkbox"
-          onChange={props.default}
+      <label className={Constants.form_check_label}>
+        <input className={Constants.form_check_input} type={Constants.checkbox}
+          onChange={(e) => props.default(e)}
         />
         {Constants.toggleName}
       </label>

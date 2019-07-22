@@ -1,26 +1,54 @@
 {
-  "default": {
-    "base": [
-      {
-        "name": "Egg",
-        "image": "./Pizza-Images/eggBased.png",
-        "price": 100,
-        "ischecked": true
-      }
-    ],
-    "toppings": [
-      {
-        "name": "Mushroom",
-        "image": "./Pizza-Images/mushroomss.png",
-        "price": 50,
-        "ischecked": true
-      },
-      {
-        "name": "Olive",
-        "image": "./Pizza-Images/olives.png",
-        "price": 65,
-        "ischecked": true
-      }
-    ]
-  }
+  "base": [
+    {
+      "name": "Egg",
+      "image": "./Pizza-Images/eggBased.png",
+      "price": 100,
+      "ischecked": false
+    },
+    {
+      "name": "Tomato",
+      "image": "./Pizza-Images/tomatoBased.png",
+      "price": 80,
+      "ischecked": true
+    }
+  ],
+  "toppings": [
+    {
+      "name": "Mushroom",
+      "image": "./Pizza-Images/mushroomss.png",
+      "price": 50,
+      "ischecked": false
+    },
+    {
+      "name": "Sausage",
+      "image": "./Pizza-Images/sausagess.png",
+      "price": 60,
+      "ischecked": false
+    },
+    {
+      "name": "Olive",
+      "image": "./Pizza-Images/olives.png",
+      "price": 65,
+      "ischecked": true
+    },
+    {
+      "name": "Tomato",
+      "image": "./Pizza-Images/tomato.png",
+      "price": 55,
+      "ischecked": false
+    },
+    {
+      "name": "GreenPepper",
+      "image": "./Pizza-Images/papperGreens.png",
+      "price": 70,
+      "ischecked": true
+    },
+    {
+      "name": "RedPepper",
+      "image": "./Pizza-Images/papperRed.png",
+      "price": 70,
+      "ischecked": false
+    }
+  ]
 }

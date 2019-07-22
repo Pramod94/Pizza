@@ -7,11 +7,8 @@ import Constants from './Constants';
 import Pizza from './Components/Pizza_Image/Image';
 import Order from './Components/Pizza_Order/Order';
 import Toggle from './Components/Default/Default';
-import Total from './Components/Total/Total';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
-
-const finalTotal = 0;
 
 class App extends Component {
   constructor(props) {
@@ -29,10 +26,10 @@ class App extends Component {
 
   componentDidMount() {
     this.setState(
-      { 
-        displayContents: Contents,
-        defaultContent : Default
-       })
+      {
+        displayContents: Contents
+        // defaultContent: Default
+      })
   }
 
   handleBaseChange = (e, content) => {
@@ -71,19 +68,26 @@ class App extends Component {
   }
 
   handleCancel = () => {
-    this.setState(
-      {
-        showContent: true
-      })
+    this.setState({ showContent: true })
   }
 
-  handleDefault = () => {
-    console.log("Default handler");
-    this.setState({ baseState: true })
-    console.log(this.state.baseState);
+  handleDefault = (e) => {
+    // const defaultContent = { ...this.state.defaultContent };
+    const newDefault = Object.freeze(Default);
+    const defaultContent = {...newDefault};
+    if (e.target.checked) {
+      this.setState({
+        displayContents: defaultContent
+      }, () => this.handleTotal())
+    }
+    else {
+      this.setState({ displayContents: Contents }, () => this.handleTotal())
+    }
   }
-  
-  handleTotal = () => {  
+
+  handleTotal = () => {
+    let finalTotal = 0;
+    if (Object.keys(this.state.displayContents).length > 0) {
       this.state.displayContents.base.map(base => {
         if (base.ischecked) {
           finalTotal = Number(base.price);
@@ -93,30 +97,31 @@ class App extends Component {
         if (topping.ischecked) {
           finalTotal += Number(topping.price);
         }
-      }) 
-    this.setState({ total : finalTotal })
+      })
+      this.setState({ total: finalTotal })
+    } else { this.setState({ total: 0 }) }
   }
 
   render() {
     return (
-      <div className="overview">
-
-        <div className="wrapper">
+      <div className={Constants.overview}>
+        <div className={Constants.wrapper}>
           <div>
-            <div className="image-grid">
-              <img className="stack-images" src={Constants.default_image} alt={Constants.alt} width={Constants.width}
-                height={Constants.height} />
+            <div className={Constants.imageGrid}>
+              <img className={Constants.stackImages}
+                src={Constants.default_image}
+                alt={Constants.alt}
+                width={Constants.width}
+                height={Constants.height}
+              />
               <Pizza displayContents={this.state.displayContents} />
             </div>
-            <Toggle 
-            defaultContent={this.state.defaultContent}
-            default={this.handleDefault} 
-            />
+            <Toggle default={this.handleDefault} />
           </div>
-
-          {this.state.showContent &&
-            <div className="Content">
-              <h3 className="heading">{Constants.heading}</h3>
+          {
+            this.state.showContent &&
+            <div className={Constants.content}>
+              <h3 className={Constants.title}>{Constants.heading}</h3>
               <PizzaBase
                 base={this.state.displayContents.base}
                 baseChange={this.handleBaseChange}
@@ -125,12 +130,14 @@ class App extends Component {
                 toppingsChange={this.handleToppingsChange}
               />
               <h5>{Constants.total}{this.state.total}</h5>
-              <button className="order-button"
-                onClick={this.handleOrder}
-              >{Constants.button}</button>
+              <button className={Constants.orderButton}
+                onClick={this.handleOrder}>
+                {Constants.button}
+              </button>
             </div>
           }
-          {!this.state.showContent &&
+          {
+            !this.state.showContent &&
             <Order price={this.state.total} cancel={this.handleCancel} />
           }
         </div>
