@@ -2,6 +2,11 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Constants from '../../Constants';
 
+/**
+ * Default Button
+ * @param {method} props
+ * @returns Default Button 
+ */
 function Default_Toggle(props) {
   return (
     <div>

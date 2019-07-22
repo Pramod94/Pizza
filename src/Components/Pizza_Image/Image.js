@@ -1,6 +1,11 @@
 import React from 'react';
 import Constants from '../../Constants';
 
+/**
+ * Displays Pizza Image
+ * @param {Object} props takes displayContents object
+ * @returns Pizza images
+ */
 function Pizza(props) {
   let imageAry = [];
   if (Object.keys(props.displayContents).length !== 0) {

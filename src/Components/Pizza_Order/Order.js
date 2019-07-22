@@ -3,6 +3,11 @@ import Constants from '../../Constants';
 import 'bootstrap/dist/css/bootstrap.css';
 import '../Pizza_Order/Order.css';
 
+/**
+ * Displays the Order payment page
+ * @param {property} props takes total price
+ * @returns Order payment page
+ */
 function Order(props) {
   return (
     <div className={Constants.order}>

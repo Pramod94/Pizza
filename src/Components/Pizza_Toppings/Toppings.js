@@ -2,6 +2,11 @@ import React from 'react';
 import Constants from '../../Constants';
 import '../Pizza_Toppings/Toppings.css';
 
+/**
+ * Displays the Pizza Toppings
+ * @param {Object} props takes the displayContents toppings Object
+ * @returns Pizza Toppings in Checkboxes
+ */
 function Toppings(props) {
   return (
     <div>

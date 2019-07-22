@@ -10,6 +10,10 @@ import Toggle from './Components/Default/Default';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
+ /**
+  * Renders the Landing Page
+  * @returns Landing Page
+  */
 class App extends Component {
   constructor(props) {
     super(props);
@@ -24,6 +28,9 @@ class App extends Component {
     }
   }
 
+  /**
+   * Sets the JSON to state
+   */
   componentDidMount() {
     this.setState(
       {
@@ -32,6 +39,11 @@ class App extends Component {
       })
   }
 
+  /**
+   * Handles the base change event by setting the state and Calculating the total
+   * @param {Object} props Object of Base array
+   * @returns updated state for displayContents and Total
+   */
   handleBaseChange = (e, content) => {
     let oldBase = [...this.state.displayContents.base];
     const data = { ...this.state.displayContents };
@@ -48,6 +60,11 @@ class App extends Component {
     this.handleTotal();
   }
 
+  /**
+   * Handles the toppings change event by setting the state and Calculating the total
+   * @param {Object} props Object of Toppings array
+   * @returns updated state for displayContents and Total
+   */
   handleToppingsChange = (e, content) => {
     let oldToppings = [...this.state.displayContents.toppings];
     const data = { ...this.state.displayContents };
@@ -63,14 +80,24 @@ class App extends Component {
     this.handleTotal();
   }
 
+  /**
+   * Hides the displayContents by setting up the state
+   */
   handleOrder = () => {
     this.setState({ showContent: false })
   }
 
+/**
+ * Hides the Order content by setting up the state
+ */
   handleCancel = () => {
     this.setState({ showContent: true })
   }
 
+  /**
+   * Sets the default contents
+   * @returns defalut contents by setting up the state
+   */
   handleDefault = (e) => {
     // const defaultContent = { ...this.state.defaultContent };
     const newDefault = Object.freeze(Default);
@@ -85,6 +112,10 @@ class App extends Component {
     }
   }
 
+  /**
+   * Calculates Total
+   * @returns finalTotal by setting up the state
+   */
   handleTotal = () => {
     let finalTotal = 0;
     if (Object.keys(this.state.displayContents).length > 0) {
@@ -102,6 +133,10 @@ class App extends Component {
     } else { this.setState({ total: 0 }) }
   }
 
+  /**
+   * Renders the Main display contents
+   * @returns Landing page
+   */
   render() {
     return (
       <div className={Constants.overview}>

@@ -2,6 +2,11 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Constants from '../../Constants';
 
+/**
+ * Displays the Pizza Base options
+ * @param {Object} props Takes Pizza base object
+ * @returns Pizza bases in radio buttons 
+ */
 function Pizza_Base(props) {
   return (
     <div>
