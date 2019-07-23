@@ -1,6 +1,7 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Constants from '../../Constants';
+import '../../App.css';
 
 /**
  * Default Button
@@ -9,7 +10,7 @@ import Constants from '../../Constants';
  */
 function Default_Toggle(props) {
   return (
-    <div>
+    <div className={Constants.form_check}>
       <label className={Constants.form_check_label}>
         <input className={Constants.form_check_input} type={Constants.checkbox}
           onChange={(e) => props.default(e)}

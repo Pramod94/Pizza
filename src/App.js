@@ -7,24 +7,23 @@ import Constants from './Constants';
 import Pizza from './Components/Pizza_Image/Image';
 import Order from './Components/Pizza_Order/Order';
 import Toggle from './Components/Default/Default';
+import cloneDeep from 'lodash/cloneDeep';
 import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
- /**
-  * Renders the Landing Page
-  * @returns Landing Page
-  */
+/**
+ * Renders the Landing Page
+ * @returns Landing Page
+ */
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       total: 0,
-      pizzaImage: [],
       showContent: true,
-      baseState: false,
-      toppingsState: false,
-      displayContents: {},
-      defaultContent: {}
+      disable_toppings: true,
+      disable_order: true,
+      displayContents: {}
     }
   }
 
@@ -32,11 +31,7 @@ class App extends Component {
    * Sets the JSON to state
    */
   componentDidMount() {
-    this.setState(
-      {
-        displayContents: Contents
-        // defaultContent: Default
-      })
+    this.setState({ displayContents: Contents })
   }
 
   /**
@@ -45,8 +40,8 @@ class App extends Component {
    * @returns updated state for displayContents and Total
    */
   handleBaseChange = (e, content) => {
-    let oldBase = [...this.state.displayContents.base];
-    const data = { ...this.state.displayContents };
+    let oldBase = cloneDeep(this.state.displayContents.base);
+    const data = cloneDeep(this.state.displayContents);
     const newBase = oldBase.map(base => {
       if (content.name == base.name) {
         base.ischecked = e.target.checked;
@@ -56,7 +51,10 @@ class App extends Component {
         return base;
       }
     })
-    this.setState({ displayContents: { base: newBase, toppings: data.toppings } });
+    this.setState({
+      displayContents: { base: newBase, toppings: data.toppings },
+      disable_toppings: !e.target.checked
+    });
     this.handleTotal();
   }
 
@@ -66,8 +64,10 @@ class App extends Component {
    * @returns updated state for displayContents and Total
    */
   handleToppingsChange = (e, content) => {
-    let oldToppings = [...this.state.displayContents.toppings];
-    const data = { ...this.state.displayContents };
+    // let oldToppings = [...this.state.displayContents.toppings];
+    // const data = { ...this.state.displayContents };
+    let oldToppings = cloneDeep(this.state.displayContents.toppings);
+    const data = cloneDeep(this.state.displayContents);
     const newToppings = oldToppings.map(topping => {
       if (content.name == topping.name) {
         topping.ischecked = e.target.checked;
@@ -76,7 +76,10 @@ class App extends Component {
         return topping;
       }
     })
-    this.setState({ displayContents: { base: data.base, toppings: newToppings } })
+    this.setState({ 
+      displayContents: { base: data.base, toppings: newToppings },
+      disable_order : !e.target.checked
+     })
     this.handleTotal();
   }
 
@@ -87,9 +90,9 @@ class App extends Component {
     this.setState({ showContent: false })
   }
 
-/**
- * Hides the Order content by setting up the state
- */
+  /**
+   * Hides the Order content by setting up the state
+   */
   handleCancel = () => {
     this.setState({ showContent: true })
   }
@@ -99,16 +102,20 @@ class App extends Component {
    * @returns defalut contents by setting up the state
    */
   handleDefault = (e) => {
-    // const defaultContent = { ...this.state.defaultContent };
-    const newDefault = Object.freeze(Default);
-    const defaultContent = {...newDefault};
+    const newDefault = cloneDeep(Default);
     if (e.target.checked) {
       this.setState({
-        displayContents: defaultContent
+        displayContents: newDefault,
+        disable_toppings: false,
+        disable_order : false
       }, () => this.handleTotal())
     }
     else {
-      this.setState({ displayContents: Contents }, () => this.handleTotal())
+      this.setState({
+        displayContents: Contents,
+        disable_toppings: true,
+        disable_order : true
+      }, () => this.handleTotal())
     }
   }
 
@@ -163,10 +170,13 @@ class App extends Component {
               />
               <Toppings toppings={this.state.displayContents.toppings}
                 toppingsChange={this.handleToppingsChange}
+                disable_toppings={this.state.disable_toppings}
               />
               <h5>{Constants.total}{this.state.total}</h5>
               <button className={Constants.orderButton}
-                onClick={this.handleOrder}>
+                onClick={this.handleOrder}
+                disabled={this.state.disable_order}
+              >
                 {Constants.button}
               </button>
             </div>

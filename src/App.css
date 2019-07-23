@@ -1,24 +1,24 @@
-.overview{
+.overview {
   margin: 3%;
   display: grid;
   grid-gap: 7%;
 }
 
-.title{
+.title {
   font-style: initial;
 }
 
-.wrapper{
+.wrapper {
 display: grid;
 grid-template-columns: 50% 40%;
 }
 
-.content{
+.content {
   display: grid;
   grid-gap: 15%;
 }
 
-.button{
+.button {
   width: 6em;
   border-radius: 1em;
 }
@@ -31,9 +31,17 @@ grid-template-columns: 50% 40%;
   position: absolute;
 }
 
-.order-button{
+.order-button {
   width: 8em;
   background-color:#2d3436;
   color: whitesmoke;
   border-radius: 0.5em;
+}
+
+.form-check-label {
+  cursor: pointer;
+}
+
+.form-check-input {
+  cursor: pointer;
 }

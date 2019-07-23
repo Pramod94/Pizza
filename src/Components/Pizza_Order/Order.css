@@ -1,10 +1,10 @@
-.order{
+.order {
   display: grid;
   grid-template-rows: 2fr;
   grid-gap: 10px;
 }
 
- .pizza-price{
+.pizza-price {
    background-color:#b2bec3;
    padding: 10px;
    width: 70%;
@@ -13,25 +13,25 @@
    font-weight: bold
  }
 
- .payment-method{
+.payment-method {
    display: grid;
    grid-template-columns: 50% 50%;
  }
 
- .buttons{
+.buttons {
    display: grid;
    grid-template-columns: 50% 50%;
    grid-gap: 10%;
    width: 63%;
  }
 
- #cancel{
+#cancel {
    background-color: rgb(199, 43, 43);
    color: white;
    border-radius: 10px;
  }
 
- #confirm{
+#confirm {
    background-color: rgb(38, 180, 38);
    border-radius: 10px;
  }

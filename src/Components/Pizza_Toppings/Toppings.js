@@ -21,6 +21,7 @@ function Toppings(props) {
                     type={Constants.checkbox}
                     checked={toppings.ischecked}
                     onChange={(e) => props.toppingsChange(e, toppings)}
+                    disabled={props.disable_toppings}
                   />
                   {toppings.name}
                 </label>

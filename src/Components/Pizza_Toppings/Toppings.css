@@ -1,15 +1,7 @@
-.items{
+.items {
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 1fr;
   grid-gap: 10px;
- }
-
- .form-check-label{
-   cursor: pointer;
- }
-
- .form-check-input{
-   cursor: pointer;
  }
  
