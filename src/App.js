@@ -76,10 +76,10 @@ class App extends Component {
         return topping;
       }
     })
-    this.setState({ 
+    this.setState({
       displayContents: { base: data.base, toppings: newToppings },
-      disable_order : !e.target.checked
-     })
+      disable_order: !e.target.checked
+    })
     this.handleTotal();
   }
 
@@ -107,14 +107,14 @@ class App extends Component {
       this.setState({
         displayContents: newDefault,
         disable_toppings: false,
-        disable_order : false
+        disable_order: false
       }, () => this.handleTotal())
     }
     else {
       this.setState({
         displayContents: Contents,
         disable_toppings: true,
-        disable_order : true
+        disable_order: true
       }, () => this.handleTotal())
     }
   }
